@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "706095408502",
+    "project_id": "androidvercukor",
+    "storage_bucket": "androidvercukor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706095408502:android:3e7472d58cdd2aaf838657",
+        "android_client_info": {
+          "package_name": "com.example.vercukornezegeto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706095408502-ipmifufrbsgcabb3sir3tdpqn1eqggbd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.vercukornezegeto",
+            "certificate_hash": "572cca2fd3c1a5a68d7bb77722cb27ec15312b0f"
+          }
+        },
+        {
+          "client_id": "706095408502-8no5ta6q04mh99mcpt77sav57h86k0cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyG4UbcEQxahiZBhlNtlbp5p7e-apzYgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706095408502-8no5ta6q04mh99mcpt77sav57h86k0cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

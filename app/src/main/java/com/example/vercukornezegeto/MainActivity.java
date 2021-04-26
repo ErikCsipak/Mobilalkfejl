@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        getSupportLoaderManager().restartLoader(0, null, this);
         Log.i(LOG_TAG, "onCreate");
     }
     public void login(View view) {
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mAuth.signInWithEmailAndPassword(userName, password).addOnCompleteListener(this, task -> {
             if(task.isSuccessful()){
                 Log.d(LOG_TAG, "User login successful");
-                //todo: mit csináljon ha sikerült
+                startListing();
             } else {
                 Log.d(LOG_TAG, "User login failed");
                 Toast.makeText(MainActivity.this, "User login failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -72,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
+
     public void register(View view) {
         Intent intent = new Intent(this, RegisterActivity.class);
         intent.putExtra("SECRET_KEY", SECRET_KEY);
@@ -92,5 +92,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
 
+    }
+    private void startListing(/* registered used class */) {
+        Intent intent = new Intent(this, ListingActivity.class);
+        intent.putExtra("SECRET_KEY", SECRET_KEY);
+        startActivity(intent);
     }
 }

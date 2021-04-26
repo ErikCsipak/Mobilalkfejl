@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:orientation="vertical"
+    android:gravity="center">
 
     <TextView
         android:id="@+id/registrationTextView"
@@ -21,9 +23,6 @@
         android:id="@+id/userNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:ems="10"
         android:hint="@string/user_name"
         android:inputType="textPersonName"
@@ -35,9 +34,6 @@
         android:id="@+id/userEmailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
         android:hint="@string/email_address"
         android:inputType="textEmailAddress"
@@ -49,9 +45,6 @@
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -63,9 +56,6 @@
         android:id="@+id/passwordAgainEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
         android:hint="@string/password_again"
         android:inputType="textPassword"
@@ -77,47 +67,28 @@
         android:id="@+id/phoneEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
         android:hint="@string/phone_number"
         android:inputType="phone"
         android:layout_below="@id/passwordAgainEditText"/>
-
-    <Spinner
-        android:id="@+id/phoneSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:layout_below="@id/phoneEditText"/>
 
 
     <EditText
         android:id="@+id/addressEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
         android:maxLines="3"
         android:hint="@string/address"
         android:inputType="textMultiLine|textPostalAddress"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/phoneSpinner"/>
+        />
 
     <TextView
         android:id="@+id/accountTypeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:text="@string/account_type"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_below="@id/addressEditText"/>
@@ -126,9 +97,6 @@
         android:id="@+id/accountTypeGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginRight="@dimen/default_margin_side"
         android:orientation="horizontal"
         android:layout_below="@id/accountTypeTextView">
 
@@ -136,37 +104,33 @@
             android:id="@+id/buyer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/customer"/>
+            android:text="@string/male"/>
 
         <RadioButton
             android:id="@+id/seller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/seller"/>
+            android:text="@string/female"/>
     </RadioGroup>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/accountTypeGroup"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+
         android:orientation="horizontal">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="register"
-            android:text="@string/registration" />
+            android:text="@string/registration"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:onClick="cancel"
-            android:text="@string/cancel" />
+            android:text="@string/cancel"/>
     </LinearLayout>
-</RelativeLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,6 +1,5 @@
 package com.example.vercukornezegeto;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,16 +8,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -31,7 +25,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     EditText passwordEditText;
     EditText passwordConfirmEditText;
     EditText phoneEditText;
-    Spinner spinner;
     RadioGroup accountTypeGroup;
 
     private SharedPreferences preferences;
@@ -42,8 +35,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Bundle bundle = getIntent().getExtras();
-        // int secret_key = bundle.getInt("SECRET_KEY");
         int secret_key = getIntent().getIntExtra("SECRET_KEY", 0);
 
         if (secret_key != 99) {
@@ -55,7 +46,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         passwordEditText = findViewById(R.id.passwordEditText);
         passwordConfirmEditText = findViewById(R.id.passwordAgainEditText);
         phoneEditText = findViewById(R.id.phoneEditText);
-        spinner = findViewById(R.id.phoneSpinner);
         accountTypeGroup = findViewById(R.id.accountTypeGroup);
         accountTypeGroup.check(R.id.buyer);
 
@@ -66,12 +56,6 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         userNameEditText.setText(userName);
         passwordEditText.setText(password);
         passwordConfirmEditText.setText(password);
-
-        spinner.setOnItemSelectedListener(this);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.phone_labels, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -90,20 +74,17 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         }
 
         String phone = phoneEditText.getText().toString();
-        String phoneType = spinner.getSelectedItem().toString();
-
         int accountTypeId = accountTypeGroup.getCheckedRadioButtonId();
         View radioButton = accountTypeGroup.findViewById(accountTypeId);
         int id = accountTypeGroup.indexOfChild(radioButton);
         String accountType =  ((RadioButton)accountTypeGroup.getChildAt(id)).getText().toString();
 
         Log.i(LOG_TAG, "User registration successful: " + userName);
-        // startShopping();
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if(task.isSuccessful()){
                 Log.d(LOG_TAG, "User created successfully");
-                startShopping();
+                startListing();
             } else {
                 Log.d(LOG_TAG, "User creation failed");
                 Toast.makeText(RegisterActivity.this, "User creation failed " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -115,11 +96,10 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         finish();
     }
 
-    private void startShopping(/* registered used class */) {
-        //todo: bedob ha regisztrált
-        //Intent intent = new Intent(this, ShopListActivity.class);
-        // intent.putExtra("SECRET_KEY", SECRET_KEY);
-        //startActivity(intent);
+    private void startListing(/* registered used class */) {
+        Intent intent = new Intent(this, ListingActivity.class);
+        intent.putExtra("SECRET_KEY", SECRET_KEY);
+        startActivity(intent);
     }
 
     @Override
