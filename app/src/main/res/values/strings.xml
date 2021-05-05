@@ -22,4 +22,72 @@
     <string name="female">Female</string>
     <string name="login_with_google">Login with Google</string>
     <string name="title_activity_listing">ListingActivity</string>
+    <string name="Value">Value</string>
+    <string name="remove">Remove</string>
+    <string name="add_values">Add values</string>
+    <string name="add">Add</string>
+    <string name="new_observation">New Observation</string>
+    <string name="wbc">WBC</string>
+    <string name="RBC">RBC</string>
+    <string name="hgb">HGB</string>
+    <string name="hct">HCT</string>
+    <string name="mcv">MCV</string>
+    <string name="mch">MCH</string>
+    <string name="mchc">MCHC</string>
+    <string name="plt">PLT</string>
+    <string name="rdw_sd">RDW-SD</string>
+    <string name="rdw_cv">RDW-CV</string>
+    <string name="pdw">PDW</string>
+    <string name="mpv">MPV</string>
+    <string name="pct">PCT</string>
+    <string name="neut">NEUT</string>
+    <string name="lymph">LYMPH</string>
+    <string name="mono">MONO</string>
+    <string name="eo">EO</string>
+    <string name="baso">BASO</string>
+    <string name="ig">IG</string>
+    <string name="add_new_page">Add new page</string>
+
+    <string-array name="keysForBloodValues">
+        <item>WBC</item>
+        <item>RBC</item>
+        <item>HGB</item>
+        <item>HCT</item>
+        <item>MCV</item>
+        <item>MCH</item>
+        <item>MCHC</item>
+        <item>PLT</item>
+        <item>RDW-SD</item>
+        <item>RDW-CV</item>
+        <item>PDW</item>
+        <item>MPV</item>
+        <item>PCT</item>
+        <item>NEUT</item>
+        <item>LYMPH</item>
+        <item>MONO</item>
+        <item>EO</item>
+        <item>BASO</item>
+        <item>IG</item>
+    </string-array>
+    <string-array name="valuesForBloodKeys">
+        <item>4.00–11.00</item>
+        <item>3.50–5.00</item>
+        <item>120–165</item>
+        <item>37.0–47.0</item>
+        <item>80.0–100.0</item>
+        <item>27.0–34.0</item>
+        <item>320–360</item>
+        <item>150–450</item>
+        <item>35.0–56.0</item>
+        <item>11.0–16.0</item>
+        <item>15.0–17.0</item>
+        <item>6.5–12.0</item>
+        <item>0.11–0.28</item>
+        <item>2.00–7.00</item>
+        <item>0.80–4.00</item>
+        <item>0.12–1.20</item>
+        <item>0.00–0.50</item>
+        <item>0.00–0.01</item>
+        <item>0.00–7.00</item>
+    </string-array>
 </resources>

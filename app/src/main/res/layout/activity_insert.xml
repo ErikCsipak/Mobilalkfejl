@@ -1,52 +1,404 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".InsertActivity">
-
-    <EditText
-        android:id="@+id/editTextUserName"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/name"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.402"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:context=".InsertActivity">
 
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUserName"
-        tools:layout_editor_absoluteX="57dp" />
+        <LinearLayout
+            android:id="@+id/WBCLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
 
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="register"
-        android:text="@string/registration"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+            <TextView
+                android:id="@+id/WBC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wbc" />
 
-    <Button
-        android:id="@+id/googleSignInButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="loginWithGoogle"
-        android:text="Login with Google"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+            <EditText
+                android:id="@+id/WBCValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/RBCLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/WBCLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/RBC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/RBC"/>
+
+            <EditText
+                android:id="@+id/RBCValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/HGBLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/RBCLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/HGB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hgb" />
+
+            <EditText
+                android:id="@+id/HGBValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/HCTLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/HGBLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/HCT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hct" />
+
+            <EditText
+                android:id="@+id/HCTValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/MCVLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/HCTLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/MCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mcv" />
+
+            <EditText
+                android:id="@+id/MCVValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/MCHLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/MCVLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/MCH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mch" />
+
+            <EditText
+                android:id="@+id/MCHValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/MCHCLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/MCHLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/MCHC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mchc" />
+
+            <EditText
+                android:id="@+id/MCHCValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/PLTLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/MCHCLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/PLT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/plt" />
+
+            <EditText
+                android:id="@+id/PLTValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/RDWSDLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/PLTLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/RDWSD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rdw_sd" />
+
+            <EditText
+                android:id="@+id/RDWSDValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/RDWCVLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/RDWSDLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/RDWCV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rdw_cv" />
+
+            <EditText
+                android:id="@+id/RDWCVValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/PDWLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/RDWCVLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/PDW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pdw" />
+
+            <EditText
+                android:id="@+id/PDWValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/MPVLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/PDWLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/MPV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mpv" />
+
+            <EditText
+                android:id="@+id/MPVValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/PCTLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/MPVLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/PCT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pct" />
+
+            <EditText
+                android:id="@+id/PCTValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/NEUTLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/PCTLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/NEUT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/neut" />
+
+            <EditText
+                android:id="@+id/NEUTValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LYMPHLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/NEUTLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/LYMPH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lymph" />
+
+            <EditText
+                android:id="@+id/LYMPHValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/MONOLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/LYMPHLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/MONO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mono" />
+
+            <EditText
+                android:id="@+id/MONOValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/EOLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/MONOLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/EO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eo" />
+
+            <EditText
+                android:id="@+id/EOValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/BASOLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/EOLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/BASO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/baso" />
+
+            <EditText
+                android:id="@+id/BASOValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/IGLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/BASOLayout"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/IG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ig" />
+
+            <EditText
+                android:id="@+id/IGValue"
+                android:layout_marginStart="50dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/add"
+            android:onClick="insertData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new_page"
+            app:layout_constraintTop_toBottomOf="@id/IGLayout"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

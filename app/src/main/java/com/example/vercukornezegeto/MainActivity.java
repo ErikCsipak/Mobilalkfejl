@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     public void onLoaderReset(@NonNull Loader<String> loader) {
 
     }
-    private void startListing(/* registered used class */) {
+    private void startListing() {
         Intent intent = new Intent(this, ListingActivity.class);
         intent.putExtra("SECRET_KEY", SECRET_KEY);
         startActivity(intent);
