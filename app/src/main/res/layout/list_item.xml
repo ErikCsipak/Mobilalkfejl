@@ -15,6 +15,7 @@
             android:layout_centerHorizontal="true"
             android:text="Date_placeholder:" />
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/first"
             android:layout_marginStart="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -166,9 +167,9 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="20dp"
             android:layout_below="@id/dateText"
+            android:layout_toEndOf="@+id/first"
+            android:layout_alignParentEnd="true"
             android:orientation="vertical">
 
             <TextView

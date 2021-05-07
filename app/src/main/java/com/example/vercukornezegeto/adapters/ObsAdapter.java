@@ -32,6 +32,7 @@ import java.util.ArrayList;
 public class ObsAdapter extends RecyclerView.Adapter<ObsAdapter.ViewHolder> {
     private ArrayList<Observation> mListingItemsData;
     private Context mContext;
+    private int lastPosition = -1;
 
     public ObsAdapter(Context context, ArrayList<Observation> itemsData){
         System.out.println("-------------------------ObsAdapter init-------------------------");
@@ -50,6 +51,12 @@ public class ObsAdapter extends RecyclerView.Adapter<ObsAdapter.ViewHolder> {
     public void onBindViewHolder(ObsAdapter.ViewHolder holder, int position) {
         Observation currentItem = mListingItemsData.get(position);
         System.out.println("----------------------Current item-------------------: " + currentItem);
+
+        if(holder.getAdapterPosition() > lastPosition) {
+            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.slide_in);
+            holder.itemView.startAnimation(animation);
+            lastPosition = holder.getAdapterPosition();
+        }
 
         holder.bindTo(currentItem);
     }
@@ -159,6 +166,21 @@ public class ObsAdapter extends RecyclerView.Adapter<ObsAdapter.ViewHolder> {
         @SuppressLint("SetTextI18n")
         public void bindTo(Observation currentItem){
             for (int i = 0; i<listOfTextValues.size(); i++){
+                int finalI = i;
+                listOfTextValues.get(i).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.scale_right);
+                            listOfTextValues.get(finalI).startAnimation(animation);
+                    }
+                });
+                listOfTextBasedOn.get(i).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.scale_right);
+                        listOfTextBasedOn.get(finalI).startAnimation(animation);
+                    }
+                });
                 dateText.setText(currentItem.getEffectiveInstant());
                 listOfTextValues.get(i).setText(currentItem.getFocus().get(i)+ ": "+currentItem.getComponent().get(i).getValueString());
                 listOfTextBasedOn.get(i).setText(currentItem.getBasedOn().get(i));

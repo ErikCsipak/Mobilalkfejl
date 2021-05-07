@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,18 +14,17 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vercukornezegeto.entities.Observation;
-import com.example.vercukornezegeto.entities.Resource.CodeableConcept;
 import com.example.vercukornezegeto.entities.Resource.Component;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Random;
 
 public class UpdateActivity extends AppCompatActivity {
+    private static final String LOG_TAG = UpdateActivity.class.getName();
+    private static final int SECRET_KEY = 99;
 
     private TextView date;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -58,6 +58,14 @@ public class UpdateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
+
+        int secret_key = getIntent().getIntExtra("SECRET_KEY", 0);
+
+        if (secret_key != 99) {
+            finish();
+        }
+
+        //Get instance of parcelable Observation
         currentItem = getIntent().getExtras().getParcelable("currentItem");
 
         mFirestore = FirebaseFirestore.getInstance();
@@ -91,9 +99,8 @@ public class UpdateActivity extends AppCompatActivity {
             text.setText(currentItem.getComponent().get(i).getValueString());
             i++;
         }
+
         date.setText(currentItem.getEffectiveInstant());
-
-
         date.setOnClickListener(v -> {
             Calendar cal = Calendar.getInstance();
             int year = cal.get(Calendar.YEAR);
@@ -117,13 +124,14 @@ public class UpdateActivity extends AppCompatActivity {
 
     }
 
+    //Create Observation instance out of input fields
     private Observation initData(){
         ArrayList<String> resultValues = new ArrayList<>();
         ArrayList<Component> components = new ArrayList<>();
 
         for (EditText text: textArray){
             resultValues.add(text.getText().toString());
-            System.out.println("Input mezo erteke: " + text.getText().toString());
+            //Log.d(LOG_TAG, "Input mezo erteke: " + text.getText().toString());
         }
 
         int i =0;
@@ -139,12 +147,16 @@ public class UpdateActivity extends AppCompatActivity {
         return o;
     }
 
+    //Nav back to ListingActivity
     public void backToListingFromUpdate(View view) {
         Intent intent = new Intent(this, ListingActivity.class);
+        intent.putExtra("SECRET_KEY", SECRET_KEY);
         startActivity(intent);
     }
 
+    //Update data in FireStore
     public void updateData(View view) {
+        //Check the same condition as in InsertActivity
         Observation o = initData();
         boolean b = true;
         for (Component c: o.getComponent()){
@@ -168,6 +180,7 @@ public class UpdateActivity extends AppCompatActivity {
             } else {
                 mItems.document(o.getDocumentId()).set(o);
                 Intent intent = new Intent(this, ListingActivity.class);
+                intent.putExtra("SECRET_KEY", SECRET_KEY);
                 Toast.makeText(UpdateActivity.this, "Sikeres felvitel!", Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }

@@ -1,22 +1,12 @@
 package com.example.vercukornezegeto;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,17 +20,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
 public class InsertActivity extends AppCompatActivity {
     private static final String LOG_TAG = InsertActivity.class.getName();
-
+    private static final int SECRET_KEY = 99;
     private FirebaseFirestore mFirestore;
     private CollectionReference mItems;
 
@@ -78,6 +66,12 @@ public class InsertActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
+        int secret_key = getIntent().getIntExtra("SECRET_KEY", 0);
+
+        if (secret_key != 99) {
+            finish();
+        }
+
         user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             userName = user.getEmail();
@@ -104,14 +98,16 @@ public class InsertActivity extends AppCompatActivity {
         BASO = findViewById(R.id.BASOValue);
         IG = findViewById(R.id.IGValue);
         textArray = new ArrayList<>();
-        Collections.addAll(textArray, WBC, RBC, HGB, HCT, MCV, MCH, MCHC, PLT, RDWSD, RDWCV, PDW, MPV, PCT, NEUT, LYMPH, MONO, EO, BASO, IG);
-
         valueNames = new ArrayList<>();
         optValues = new ArrayList<>();
+
+        Collections.addAll(textArray, WBC, RBC, HGB, HCT, MCV, MCH, MCHC, PLT, RDWSD, RDWCV, PDW, MPV, PCT, NEUT, LYMPH, MONO, EO, BASO, IG);
+
         String[] names = getResources().getStringArray(R.array.keysForBloodValues);
-        valueNames.addAll(Arrays.asList(names));
         String[] values =  getResources().getStringArray(R.array.valuesForBloodKeys);
+        valueNames.addAll(Arrays.asList(names));
         optValues.addAll(Arrays.asList(values));
+
         date = findViewById(R.id.date);
         date.setOnClickListener(v -> {
             Calendar cal = Calendar.getInstance();
@@ -139,10 +135,8 @@ public class InsertActivity extends AppCompatActivity {
         mItems = mFirestore.collection("Observations");
     }
 
-
-
+    //Collect data from input and make an Observation out of it
     private Observation initData(String user){
-
         CodeableConcept c = new CodeableConcept();
         c.setText("Blood map");
 
@@ -151,22 +145,22 @@ public class InsertActivity extends AppCompatActivity {
         int targetStringLength = 8;
         Random random = new Random();
 
-
+        //Generate random identifier as status
         String statusIdentifier = random.ints(leftLimit, rightLimit + 1)
                 .limit(targetStringLength)
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
 
+        //Input field values
         ArrayList<String> resultValues = new ArrayList<>();
         ArrayList<Component> components = new ArrayList<>();
 
         for (EditText text: textArray){
             resultValues.add(text.getText().toString());
-            //System.out.println("Input mezo erteke: " + text.getText().toString());
-            //System.out.println("Input mezo alapjan beallitott ertek: " + resultValues.get(i));
+            //Log.d(LOG_TAG,"Input mezo erteke: " + text.getText().toString());
         }
-
         for (String res : resultValues){
+            //Generate random identifier as component code
             String generatedString = random.ints(leftLimit, rightLimit + 1)
                     .limit(targetStringLength)
                     .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
@@ -176,18 +170,21 @@ public class InsertActivity extends AppCompatActivity {
 
         Observation o = new Observation(statusIdentifier, c);
         o.setComponent(components);
-        System.out.println(o.getComponent());
         o.setSubject(user);
         o.setFocus(valueNames);
         o.setBasedOn(optValues);
         o.setEffectiveInstant(date.getText().toString());
+        //Log.d(LOG_TAG, o.getComponent().toString());
 
         return o;
     }
 
+    //Add data to FireStore
     public void insertData(View view) {
         Observation o = initData(userName);
         boolean b = true;
+
+        //Check for empty fields, or invalid values
         for (Component c: o.getComponent()){
             String str = c.getValueString();
             if (str.equals("")){
@@ -203,20 +200,25 @@ public class InsertActivity extends AppCompatActivity {
                 break;
             }
         }
+        //Check if date is selected
         if (b) {
             if (o.getEffectiveInstant().equals("")) {
                 Toast.makeText(InsertActivity.this, "Válassz dátumot!", Toast.LENGTH_LONG).show();
             } else {
+                //Add to FireStore
                 mItems.add(o);
                 Intent intent = new Intent(this, ListingActivity.class);
+                intent.putExtra("SECRET_KEY", SECRET_KEY);
                 Toast.makeText(InsertActivity.this, "Sikeres felvitel!", Toast.LENGTH_LONG).show();
                 startActivity(intent);
             }
         }
     }
 
+    //Go back to ListingActivity
     public void backToListing(View view) {
         Intent intent = new Intent(this, ListingActivity.class);
+        intent.putExtra("SECRET_KEY", SECRET_KEY);
         startActivity(intent);
     }
 }

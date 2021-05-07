@@ -1,6 +1,7 @@
 package com.example.vercukornezegeto.entities.Resource;
 
-import java.lang.reflect.Array;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 public class Component {
@@ -56,6 +57,7 @@ public class Component {
         this.interpretation = interpretation;
     }
 
+    @NotNull
     @Override
     public String toString() {
         return "Component{" +

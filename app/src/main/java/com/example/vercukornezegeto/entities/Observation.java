@@ -14,7 +14,6 @@ import com.example.vercukornezegeto.entities.Resource.Narrative;
 
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Observation implements Parcelable {
     private String id = null; //id
@@ -304,7 +303,7 @@ public class Observation implements Parcelable {
 
     public void setId(String id) {
         if (id != null) {
-            if (id.matches("[A-Za-z0-9\\-\\.]{1,64}")) {
+            if (id.matches("[A-Za-z0-9\\-.]{1,64}")) {
                 this.id = id;
             } else {
                 System.err.println("Invalid id: " + id + " (character limit is 64)");

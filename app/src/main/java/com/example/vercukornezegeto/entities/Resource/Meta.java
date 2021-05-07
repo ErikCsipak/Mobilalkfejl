@@ -16,7 +16,7 @@ public class Meta {
 
     public void setVersionId(String versionId) {
         if (versionId != null) {
-            if (versionId.matches("[A-Za-z0-9\\-\\.]{1,64}")) {
+            if (versionId.matches("[A-Za-z0-9\\-.]{1,64}")) {
                 this.versionId = versionId;
             } else {
                 System.err.println("Invalid versionId: " + versionId + " (must match id regex)");
@@ -30,7 +30,7 @@ public class Meta {
 
     public void setLastUpdated(String lastUpdated) {
         if (lastUpdated != null) {
-            if (lastUpdated.matches("([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))")) {
+            if (lastUpdated.matches("([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|([+\\-])((0[0-9]|1[0-3]):[0-5][0-9]|14:00))")) {
                 this.lastUpdated = lastUpdated;
             } else {
                 System.err.println("Invalid update format: " + lastUpdated + " (must match instant regex)");
@@ -60,7 +60,7 @@ public class Meta {
         if (profile != null) {
             int i = 0;
             for (String s : profile) {
-                if (s.matches("[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)")) {
+                if (s.matches("[-a-zA-Z0-9@:%._+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)")) {
                     this.profile[i] = s;
                     i++;
                 } else {

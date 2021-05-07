@@ -1,12 +1,9 @@
 package com.example.vercukornezegeto;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -14,19 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vercukornezegeto.adapters.ObsAdapter;
 import com.example.vercukornezegeto.entities.Observation;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 public class ListingActivity extends AppCompatActivity {
@@ -49,6 +40,12 @@ public class ListingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listing);
 
+        int secret_key = getIntent().getIntExtra("SECRET_KEY", 0);
+
+        if (secret_key != 99) {
+            finish();
+        }
+
         user = FirebaseAuth.getInstance().getCurrentUser();
 
         if (user != null) {
@@ -69,41 +66,36 @@ public class ListingActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    //Query data when activity started or resumed
     @Override
     protected void onResume() {
         super.onResume();
-        System.out.println("%%%%%%%%%%%%%RESUME%%%%%%%%%%%%%%%");
         queryData();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
+    //Query data from database
     private void queryData(){
-        System.err.println("\nAdatok lekérése\n");
+        //Log.d(LOG_TAG, "Data query started!");
         mItemsData.clear();
         mItems.get().addOnSuccessListener(queryDocumentSnapshots -> {
-            System.err.println("\nAdatlekérés sikeres\n");
+            //Log.d(LOG_TAG, "Data query successful!");
             for (QueryDocumentSnapshot document : queryDocumentSnapshots){
                 Observation o = document.toObject(Observation.class);
                 o.setDocumentId(document.getId());
-                System.out.println(o.getDocumentId());;
-                System.err.println(user.getEmail());
-                System.err.println(o.getSubject());
                 if (Objects.equals(user.getEmail(), o.getSubject()))mItemsData.add(o);
             }
             mAdapter.notifyDataSetChanged();
         });
     }
 
+    //Nav to InsertActivity
     public void newPage(View view) {
         Intent intent = new Intent(this, InsertActivity.class);
         intent.putExtra("SECRET_KEY", SECRET_KEY);
         startActivity(intent);
     }
 
+    //Log out user, nav to MainActivity
     public void logOut(View view) {
         this.finish();
         FirebaseAuth.getInstance().signOut();
