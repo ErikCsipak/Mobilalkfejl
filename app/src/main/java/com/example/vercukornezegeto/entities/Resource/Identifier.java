@@ -16,10 +16,12 @@ public class Identifier {
     }
 
     public void setUse(String use) {
-        if (use.matches("[^\\s]+(\\s[^\\s]+)*")){
-            this.use = use;
-        } else {
-            System.err.println("Invalid use: " + use + " (must match code regex)");
+        if (use != null) {
+            if (use.matches("[^\\s]+(\\s[^\\s]+)*")) {
+                this.use = use;
+            } else {
+                System.err.println("Invalid use: " + use + " (must match code regex)");
+            }
         }
     }
 
@@ -36,10 +38,12 @@ public class Identifier {
     }
 
     public void setSystem(String system) {
-        if (system.matches("\\S*")){
-            this.system=system;
-        } else {
-            System.err.println("Invalid system: " + system + " (must match uri regex)");
+        if (system != null) {
+            if (system.matches("\\S*")) {
+                this.system = system;
+            } else {
+                System.err.println("Invalid system: " + system + " (must match uri regex)");
+            }
         }
     }
 

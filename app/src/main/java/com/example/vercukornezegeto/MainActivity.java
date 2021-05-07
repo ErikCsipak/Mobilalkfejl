@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private SharedPreferences preferences;
     private FirebaseAuth mAuth;
-    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +41,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         preferences = getSharedPreferences(PREF_KEY, MODE_PRIVATE);
         mAuth = FirebaseAuth.getInstance();
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         Log.i(LOG_TAG, "onCreate");
     }
@@ -63,13 +56,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 startListing();
             } else {
                 Log.d(LOG_TAG, "User login failed");
-                Toast.makeText(MainActivity.this, "User login failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "A belépés sikertelen: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-    }
-    public void loginWithGoogle(View view) {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
     public void register(View view) {

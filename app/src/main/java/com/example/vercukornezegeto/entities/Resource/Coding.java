@@ -14,10 +14,12 @@ public class Coding {
     }
 
     public void setSystem(String system) {
-        if (system.matches("\\S*")){
-            this.system=system;
-        } else {
-            System.err.println("Invalid system: " + system + " (must match uri regex)");
+        if (system != null) {
+            if (system.matches("\\S*")) {
+                this.system = system;
+            } else {
+                System.err.println("Invalid system: " + system + " (must match uri regex)");
+            }
         }
     }
 
@@ -34,10 +36,12 @@ public class Coding {
     }
 
     public void setCode(String code) {
-        if (code.matches("[^\\s]+(\\s[^\\s]+)*")){
-            this.code = code;
-        } else {
-            System.err.println("Invalid code: " + code + " (must match code regex)");
+        if (code != null) {
+            if (code.matches("[^\\s]+(\\s[^\\s]+)*")) {
+                this.code = code;
+            } else {
+                System.err.println("Invalid code: " + code + " (must match code regex)");
+            }
         }
     }
 

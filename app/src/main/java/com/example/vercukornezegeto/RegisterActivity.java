@@ -87,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                 startListing();
             } else {
                 Log.d(LOG_TAG, "User creation failed");
-                Toast.makeText(RegisterActivity.this, "User creation failed " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterActivity.this, "Sikertelen regisztráció: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

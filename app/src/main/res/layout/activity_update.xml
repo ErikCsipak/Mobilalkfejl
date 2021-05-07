@@ -9,32 +9,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="2"
-        tools:context=".InsertActivity">
+        tools:context=".UpdateActivity">
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/one"
+            android:id="@+id/uone"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/two">
+            app:layout_constraintEnd_toStartOf="@+id/utwo">
 
             <RelativeLayout
-                android:id="@+id/WBCLayout"
+                android:id="@+id/uWBCLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/WBC"
+                    android:id="@+id/uWBC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/wbc" />
 
                 <EditText
-                    android:id="@+id/WBCValue"
+                    android:id="@+id/uWBCValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -42,38 +42,38 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/PDWLayout"
+                android:id="@+id/uPDWLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/PDW"
+                    android:id="@+id/uPDW"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/pdw" />
 
                 <EditText
-                    android:id="@+id/PDWValue"
+                    android:id="@+id/uPDWValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/EOLayout"
+                android:id="@+id/uEOLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/EO"
+                    android:id="@+id/uEO"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/eo" />
 
                 <EditText
-                    android:id="@+id/EOValue"
+                    android:id="@+id/uEOValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -81,19 +81,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/PCTLayout"
+                android:id="@+id/uPCTLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/PCT"
+                    android:id="@+id/uPCT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/pct" />
 
                 <EditText
-                    android:id="@+id/PCTValue"
+                    android:id="@+id/uPCTValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -101,19 +101,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/LYMPHLayout"
+                android:id="@+id/uLYMPHLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/LYMPH"
+                    android:id="@+id/uLYMPH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/lymph" />
 
                 <EditText
-                    android:id="@+id/LYMPHValue"
+                    android:id="@+id/uLYMPHValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -121,19 +121,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/RDWSDLayout"
+                android:id="@+id/uRDWSDLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/RDWSD"
+                    android:id="@+id/uRDWSD"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/rdw_sd" />
 
                 <EditText
-                    android:id="@+id/RDWSDValue"
+                    android:id="@+id/uRDWSDValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -141,19 +141,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/HGBLayout"
+                android:id="@+id/uHGBLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/HGB"
+                    android:id="@+id/uHGB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/hgb" />
 
                 <EditText
-                    android:id="@+id/HGBValue"
+                    android:id="@+id/uHGBValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -161,19 +161,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/MCHCLayout"
+                android:id="@+id/uMCHCLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/MCHC"
+                    android:id="@+id/uMCHC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/mchc" />
 
                 <EditText
-                    android:id="@+id/MCHCValue"
+                    android:id="@+id/uMCHCValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -181,19 +181,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/MCVLayout"
+                android:id="@+id/uMCVLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/MCV"
+                    android:id="@+id/uMCV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/mcv" />
 
                 <EditText
-                    android:id="@+id/MCVValue"
+                    android:id="@+id/uMCVValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -201,19 +201,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/IGLayout"
+                android:id="@+id/uIGLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/IG"
+                    android:id="@+id/uIG"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/ig" />
 
                 <EditText
-                    android:id="@+id/IGValue"
+                    android:id="@+id/uIGValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -221,7 +221,7 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/date"
+                android:id="@+id/uDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Válassz dátumot!"
@@ -229,29 +229,29 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/two"
+            android:id="@+id/utwo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/one"
+            app:layout_constraintStart_toEndOf="@+id/uone"
             app:layout_constraintTop_toTopOf="parent">
 
             <RelativeLayout
-                android:id="@+id/HCTLayout"
+                android:id="@+id/uHCTLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/HCT"
+                    android:id="@+id/uHCT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/hct" />
 
                 <EditText
-                    android:id="@+id/HCTValue"
+                    android:id="@+id/uHCTValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -259,19 +259,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/MCHLayout"
+                android:id="@+id/uMCHLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/MCH"
+                    android:id="@+id/uMCH"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/mch" />
 
                 <EditText
-                    android:id="@+id/MCHValue"
+                    android:id="@+id/uMCHValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -279,19 +279,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/PLTLayout"
+                android:id="@+id/uPLTLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/PLT"
+                    android:id="@+id/uPLT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/plt" />
 
                 <EditText
-                    android:id="@+id/PLTValue"
+                    android:id="@+id/uPLTValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -299,19 +299,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/RDWCVLayout"
+                android:id="@+id/uRDWCVLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/RDWCV"
+                    android:id="@+id/uRDWCV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/rdw_cv" />
 
                 <EditText
-                    android:id="@+id/RDWCVValue"
+                    android:id="@+id/uRDWCVValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -319,19 +319,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/RBCLayout"
+                android:id="@+id/uRBCLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/RBC"
+                    android:id="@+id/uRBC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/RBC" />
 
                 <EditText
-                    android:id="@+id/RBCValue"
+                    android:id="@+id/uRBCValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -339,19 +339,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/MPVLayout"
+                android:id="@+id/uMPVLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/MPV"
+                    android:id="@+id/uMPV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/mpv" />
 
                 <EditText
-                    android:id="@+id/MPVValue"
+                    android:id="@+id/uMPVValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -359,19 +359,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/NEUTLayout"
+                android:id="@+id/uNEUTLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/NEUT"
+                    android:id="@+id/uNEUT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/neut" />
 
                 <EditText
-                    android:id="@+id/NEUTValue"
+                    android:id="@+id/uNEUTValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -379,19 +379,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/MONOLayout"
+                android:id="@+id/uMONOLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/MONO"
+                    android:id="@+id/uMONO"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/mono" />
 
                 <EditText
-                    android:id="@+id/MONOValue"
+                    android:id="@+id/uMONOValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -399,19 +399,19 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/BASOLayout"
+                android:id="@+id/uBASOLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/BASO"
+                    android:id="@+id/uBASO"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/baso" />
 
                 <EditText
-                    android:id="@+id/BASOValue"
+                    android:id="@+id/uBASOValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -419,16 +419,16 @@
             </RelativeLayout>
 
             <Button
-                android:id="@+id/add"
+                android:id="@+id/update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="insertData"
-                android:text="Új eredmény felvitele"/>
+                android:onClick="updateData"
+                android:text="Új eredmény felvitele" />
             <Button
                 android:id="@+id/insertBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="backToListing"
+                android:onClick="backToListingFromUpdate"
                 android:text="Mégsem"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 

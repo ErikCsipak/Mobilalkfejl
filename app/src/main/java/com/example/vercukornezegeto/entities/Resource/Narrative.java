@@ -5,11 +5,13 @@ public class Narrative {
     private String xhtml;
 
     public Narrative(String status, String xhtml) {
-        if (status.matches("[^\\s]+(\\s[^\\s]+)*")){
-            this.status = status;
-        } else {
-            System.err.println("Invalid status: " + status + " (must match code regex)");
-            this.status = null;
+        if (status != null){
+            if (status.matches("[^\\s]+(\\s[^\\s]+)*")){
+                this.status = status;
+            } else {
+                System.err.println("Invalid status: " + status + " (must match code regex)");
+                this.status = null;
+            }
         }
         this.xhtml = xhtml;
     }
@@ -19,10 +21,12 @@ public class Narrative {
     }
 
     public void setStatus(String status) {
-        if (status.matches("[^\\s]+(\\s[^\\s]+)*")){
-            this.status = status;
-        } else {
-            System.err.println("Invalid status: " + status + " (must match code regex)");
+        if (status != null) {
+            if (status.matches("[^\\s]+(\\s[^\\s]+)*")) {
+                this.status = status;
+            } else {
+                System.err.println("Invalid status: " + status + " (must match code regex)");
+            }
         }
     }
 

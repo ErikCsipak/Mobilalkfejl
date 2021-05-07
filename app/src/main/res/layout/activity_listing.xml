@@ -11,10 +11,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="newPage"
-        android:text="@string/new_observation"
+        android:text="Új eredmény"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/logOut"
+        app:layout_constraintStart_toStartOf="parent" />
+    <Button
+        android:id="@+id/logOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="logOut"
+        android:text="Kijelentkezés"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/newPage" />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="match_parent"
+        android:scrollbars = "vertical"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

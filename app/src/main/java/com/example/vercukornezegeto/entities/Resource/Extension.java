@@ -4,11 +4,13 @@ public class Extension {
     private String url; //uri
     private String value=null;
     public Extension(String url){
-        if (url.matches("\\S*")) {
-            this.url = url;
-        } else {
-            System.err.println("Invalid url: " + url + " (must match uri regex)");
-            this.url = null;
+        if (url != null) {
+            if (url.matches("\\S*")) {
+                this.url = url;
+            } else {
+                System.err.println("Invalid url: " + url + " (must match uri regex)");
+                this.url = null;
+            }
         }
     }
 
@@ -17,10 +19,12 @@ public class Extension {
     }
 
     public void setUrl(String url) {
-        if (url.matches("\\S*")) {
-            this.url = url;
-        } else {
-            System.err.println("Invalid url: " + url + " (must match uri regex)");
+        if (url != null) {
+            if (url.matches("\\S*")) {
+                this.url = url;
+            } else {
+                System.err.println("Invalid url: " + url + " (must match uri regex)");
+            }
         }
     }
 

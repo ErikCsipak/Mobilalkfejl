@@ -6,10 +6,15 @@ import java.util.ArrayList;
 public class Component {
     private String code; //code
     private String valueString;
-    //private CodeableConcept dataAbsentReason;
-    //private ArrayList<CodeableConcept> interpretation;
+    private CodeableConcept dataAbsentReason;
+    private ArrayList<CodeableConcept> interpretation;
 
+    public Component(){}
     public Component(String code) {
+        setCode(code);
+    }
+    public Component(String code, String valueString) {
+        setValueString(valueString);
         setCode(code);
     }
 
@@ -18,10 +23,12 @@ public class Component {
     }
 
     public void setCode(String code) {
-        if (code.matches("[^\\s]+(\\s[^\\s]+)*")){
-            this.code = code;
-        } else {
-            System.err.println("Invalid code: " + code + " (must match code regex)");
+        if (code != null) {
+            if (code.matches("[^\\s]+(\\s[^\\s]+)*")) {
+                this.code = code;
+            } else {
+                System.err.println("Invalid code: " + code + " (must match code regex)");
+            }
         }
     }
 
@@ -33,7 +40,7 @@ public class Component {
         this.valueString = valueString;
     }
 
-    /*public CodeableConcept getDataAbsentReason() {
+    public CodeableConcept getDataAbsentReason() {
         return dataAbsentReason;
     }
 
@@ -47,7 +54,7 @@ public class Component {
 
     public void setInterpretation(ArrayList<CodeableConcept> interpretation) {
         this.interpretation = interpretation;
-    }*/
+    }
 
     @Override
     public String toString() {

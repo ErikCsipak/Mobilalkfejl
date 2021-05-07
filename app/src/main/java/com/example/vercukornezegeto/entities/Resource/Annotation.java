@@ -32,10 +32,12 @@ public class Annotation {
     }
 
     public void setMarkdown(String markdown) {
-        if (markdown.matches("\\s*(\\S|\\s)*")){
-            this.markdown = markdown;
-        } else {
-            System.err.println("Invalid markdown: " + markdown + " (must match markdown regex)");
+        if (markdown != null) {
+            if (markdown.matches("\\s*(\\S|\\s)*")) {
+                this.markdown = markdown;
+            } else {
+                System.err.println("Invalid markdown: " + markdown + " (must match markdown regex)");
+            }
         }
     }
 }

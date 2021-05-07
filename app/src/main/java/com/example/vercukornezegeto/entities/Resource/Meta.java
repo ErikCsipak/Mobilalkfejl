@@ -15,10 +15,12 @@ public class Meta {
     }
 
     public void setVersionId(String versionId) {
-        if (versionId.matches("[A-Za-z0-9\\-\\.]{1,64}")){
-            this.versionId = versionId;
-        } else{
-            System.err.println("Invalid versionId: " + versionId + " (must match id regex)");
+        if (versionId != null) {
+            if (versionId.matches("[A-Za-z0-9\\-\\.]{1,64}")) {
+                this.versionId = versionId;
+            } else {
+                System.err.println("Invalid versionId: " + versionId + " (must match id regex)");
+            }
         }
     }
 
@@ -27,10 +29,12 @@ public class Meta {
     }
 
     public void setLastUpdated(String lastUpdated) {
-        if (lastUpdated.matches("([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))")) {
-            this.lastUpdated = lastUpdated;
-        } else {
-            System.err.println("Invalid update format: " + lastUpdated + " (must match instant regex)");
+        if (lastUpdated != null) {
+            if (lastUpdated.matches("([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))")) {
+                this.lastUpdated = lastUpdated;
+            } else {
+                System.err.println("Invalid update format: " + lastUpdated + " (must match instant regex)");
+            }
         }
     }
 
@@ -39,10 +43,12 @@ public class Meta {
     }
 
     public void setSource(String source) {
-        if (source.matches("\\S*")) {
-            this.source = source;
-        } else {
-            System.err.println("Invalid source: " + source + " (must match uri regex)");
+        if (source != null) {
+            if (source.matches("\\S*")) {
+                this.source = source;
+            } else {
+                System.err.println("Invalid source: " + source + " (must match uri regex)");
+            }
         }
     }
 
@@ -51,14 +57,16 @@ public class Meta {
     }
 
     public void setProfile(String[] profile) {
-        int i = 0;
-        for (String s: profile){
-            if (s.matches("[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)")){
-                this.profile[i] = s;
-                i++;
-            } else {
-                System.err.println("Invalid profile: " + s + " (must match canonical regex)");
-                this.profile = new String[0];
+        if (profile != null) {
+            int i = 0;
+            for (String s : profile) {
+                if (s.matches("[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)")) {
+                    this.profile[i] = s;
+                    i++;
+                } else {
+                    System.err.println("Invalid profile: " + s + " (must match canonical regex)");
+                    this.profile = new String[0];
+                }
             }
         }
     }
