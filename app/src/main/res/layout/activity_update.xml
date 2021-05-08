@@ -36,6 +36,7 @@
                 <EditText
                     android:id="@+id/uWBCValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -56,6 +57,7 @@
                 <EditText
                     android:id="@+id/uPDWValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
             </RelativeLayout>
@@ -75,6 +77,7 @@
                 <EditText
                     android:id="@+id/uEOValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -95,6 +98,7 @@
                 <EditText
                     android:id="@+id/uPCTValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -115,6 +119,7 @@
                 <EditText
                     android:id="@+id/uLYMPHValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -134,6 +139,7 @@
 
                 <EditText
                     android:id="@+id/uRDWSDValue"
+                    android:inputType="number"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -155,6 +161,7 @@
                 <EditText
                     android:id="@+id/uHGBValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -174,6 +181,7 @@
 
                 <EditText
                     android:id="@+id/uMCHCValue"
+                    android:inputType="number"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -194,6 +202,7 @@
 
                 <EditText
                     android:id="@+id/uMCVValue"
+                    android:inputType="number"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -216,6 +225,7 @@
                     android:id="@+id/uIGValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:layout_alignParentEnd="true" />
 
             </RelativeLayout>
@@ -224,7 +234,7 @@
                 android:id="@+id/uDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Válassz dátumot!"
+                android:hint="@string/v_lassz_d_tumot"
                 android:textSize="30sp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -253,6 +263,7 @@
                 <EditText
                     android:id="@+id/uHCTValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -273,6 +284,7 @@
                 <EditText
                     android:id="@+id/uMCHValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -293,6 +305,7 @@
                 <EditText
                     android:id="@+id/uPLTValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -313,6 +326,7 @@
                 <EditText
                     android:id="@+id/uRDWCVValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -332,6 +346,7 @@
 
                 <EditText
                     android:id="@+id/uRBCValue"
+                    android:inputType="number"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -352,6 +367,7 @@
 
                 <EditText
                     android:id="@+id/uMPVValue"
+                    android:inputType="number"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -373,6 +389,7 @@
                 <EditText
                     android:id="@+id/uNEUTValue"
                     android:layout_width="100dp"
+                    android:inputType="number"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -392,6 +409,7 @@
 
                 <EditText
                     android:id="@+id/uMONOValue"
+                    android:inputType="number"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -412,6 +430,7 @@
 
                 <EditText
                     android:id="@+id/uBASOValue"
+                    android:inputType="number"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -420,16 +439,16 @@
 
             <Button
                 android:id="@+id/update"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="updateData"
-                android:text="Új eredmény felvitele" />
+                android:text="@string/m_dos_t_s" />
             <Button
                 android:id="@+id/insertBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="backToListingFromUpdate"
-                android:text="Mégsem"/>
+                android:text="@string/m_gsem"/>
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 

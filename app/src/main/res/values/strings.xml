@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VercukorNezegeto</string>
+    <string name="app_name">MyVerkep</string>
     <string name="name">Name</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -92,4 +92,56 @@
         <item>0.00–7.00</item>
     </string-array>
     <string name="title_activity_update">UpdateActivity</string>
+    <string name="v_lassz_d_tumot">Válassz dátumot!</string>
+    <string name="j_eredm_ny_felvitele">Új eredmény felvitele</string>
+    <string name="m_gsem">Mégsem</string>
+    <string name="j_eredm_ny">Új eredmény</string>
+    <string name="kijelentkez_s">Kijelentkezés</string>
+    <string name="e_mail">E-mail</string>
+    <string name="bel_p_s">Belépés</string>
+    <string name="date_placeholder">Date_placeholder:</string>
+    <string name="eredm_ny">Eredmény:</string>
+    <string name="rbc_placeholder">RBC_placeholder</string>
+    <string name="hgb_placeholder">HGB_placeholder</string>
+    <string name="hct_placeholder">HCT_placeholder</string>
+    <string name="mcv_placeholder">MCV_placeholder</string>
+    <string name="mch_placeholder">MCH_placeholder</string>
+    <string name="mchc_placeholder">MCHC_placeholder</string>
+    <string name="plt_placeholder">PLT_placeholder</string>
+    <string name="rdwsd_placeholder">RDWSD_placeholder</string>
+    <string name="rdwcv_placeholder">RDWCV_placeholder</string>
+    <string name="pdw_placeholder">pdw_placeholder</string>
+    <string name="mpv_placeholder">MPV_placeholder</string>
+    <string name="pct_placeholder">PCT_placeholder</string>
+    <string name="neut_placeholder">NEUT_placeholder</string>
+    <string name="lmyph_placeholder">LMYPH_placeholder</string>
+    <string name="mono_placeholder">MONO_placeholder</string>
+    <string name="eo_placeholder">eo_placeholder</string>
+    <string name="baso_placeholder">BASO_placeholder</string>
+    <string name="ig_placeholder">IG_placeholder</string>
+    <string name="m_dos_t">Módosít</string>
+    <string name="t_r_l">Töröl</string>
+    <string name="norm_l_rt_k">Normál érték:</string>
+    <string name="wbc_basedon">wbc_basedOn</string>
+    <string name="rbc_basedon">rbc_basedOn</string>
+    <string name="hgb_basedon">hgb_basedOn</string>
+    <string name="mcv_basedon">mcv_basedOn</string>
+    <string name="mch_basedon">mch_basedOn</string>
+    <string name="mchc_basedon">mchc_basedOn</string>
+    <string name="plt_basedon">plt_basedOn</string>
+    <string name="rdwsd_basedon">rdwsd_basedOn</string>
+    <string name="rdwcv_basedon">rdwcv_basedOn</string>
+    <string name="pdw_basedon">pdw_basedOn</string>
+    <string name="mpv_basedon">mpv_basedOn</string>
+    <string name="pct_basedon">pct_basedOn</string>
+    <string name="neut_basedon">neut_basedOn</string>
+    <string name="lymph_basedon">lymph_basedOn</string>
+    <string name="mono_basedon">mono_basedOn</string>
+    <string name="eo_basedon">eo_basedOn</string>
+    <string name="baso_basedon">baso_basedOn</string>
+    <string name="ig_basedon">ig_basedOn</string>
+    <string name="m_dos_t_s">Módosítás</string>
+    <string name="regisztr_ci">Regisztráció</string>
+    <string name="jelsz">Jelszó</string>
+    <string name="jelsz_jra">Jelszó újra</string>
 </resources>

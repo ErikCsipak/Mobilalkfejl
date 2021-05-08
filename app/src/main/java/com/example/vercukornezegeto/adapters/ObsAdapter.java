@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +11,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vercukornezegeto.R;
@@ -23,9 +20,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -33,9 +28,9 @@ public class ObsAdapter extends RecyclerView.Adapter<ObsAdapter.ViewHolder> {
     private ArrayList<Observation> mListingItemsData;
     private Context mContext;
     private int lastPosition = -1;
+    private static final int SECRET_KEY = 99;
 
     public ObsAdapter(Context context, ArrayList<Observation> itemsData){
-        System.out.println("-------------------------ObsAdapter init-------------------------");
         this.mListingItemsData = itemsData;
         this.mContext = context;
     }
@@ -43,14 +38,12 @@ public class ObsAdapter extends RecyclerView.Adapter<ObsAdapter.ViewHolder> {
     @NotNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        System.out.println("-------------------------Inflate start-------------------------" + "to Context " + mContext.getPackageName());
         return new ViewHolder(LayoutInflater.from(mContext).inflate(com.example.vercukornezegeto.R.layout.list_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(ObsAdapter.ViewHolder holder, int position) {
         Observation currentItem = mListingItemsData.get(position);
-        System.out.println("----------------------Current item-------------------: " + currentItem);
 
         if(holder.getAdapterPosition() > lastPosition) {
             Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.slide_in);
@@ -118,7 +111,6 @@ public class ObsAdapter extends RecyclerView.Adapter<ObsAdapter.ViewHolder> {
 
         public ViewHolder(View itemView) {
             super(itemView);
-            System.out.println("-------------------------ViewHolder inicialized-------------------------" + "to Context " + mContext.getPackageName());
             dateText = itemView.findViewById(R.id.dateText);
             listOfTextValues.add(mWBCText = itemView.findViewById(R.id.wbcValue));
             listOfTextValues.add(mRBCText = itemView.findViewById(R.id.rbcValue));
@@ -167,19 +159,13 @@ public class ObsAdapter extends RecyclerView.Adapter<ObsAdapter.ViewHolder> {
         public void bindTo(Observation currentItem){
             for (int i = 0; i<listOfTextValues.size(); i++){
                 int finalI = i;
-                listOfTextValues.get(i).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                            Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.scale_right);
-                            listOfTextValues.get(finalI).startAnimation(animation);
-                    }
-                });
-                listOfTextBasedOn.get(i).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                listOfTextValues.get(i).setOnClickListener(v -> {
                         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.scale_right);
-                        listOfTextBasedOn.get(finalI).startAnimation(animation);
-                    }
+                        listOfTextValues.get(finalI).startAnimation(animation);
+                });
+                listOfTextBasedOn.get(i).setOnClickListener(v -> {
+                    Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.scale_right);
+                    listOfTextBasedOn.get(finalI).startAnimation(animation);
                 });
                 dateText.setText(currentItem.getEffectiveInstant());
                 listOfTextValues.get(i).setText(currentItem.getFocus().get(i)+ ": "+currentItem.getComponent().get(i).getValueString());
@@ -193,20 +179,21 @@ public class ObsAdapter extends RecyclerView.Adapter<ObsAdapter.ViewHolder> {
                 String[] value = listOfTextValues.get(i).getText().toString().split(" ");
                 float currentValue = Float.parseFloat(value[1]);
                 if (currentValue > low && currentValue < high){
-                    System.out.println(listOfTextValues.get(i).getText() + " " + currentValue + ">" + low + "&&" +currentValue+"<"+high);
+                    //System.out.println(listOfTextValues.get(i).getText() + " " + currentValue + ">" + low + "&&" +currentValue+"<"+high);
                     listOfTextValues.get(i).setTextColor(Color.rgb(32,178,170));
                 }
                 if (currentValue == low || currentValue == high){
-                    System.out.println(listOfTextValues.get(i).getText() + " " +currentValue + "==" + low + "||" +currentValue+"=="+high);
+                    //System.out.println(listOfTextValues.get(i).getText() + " " +currentValue + "==" + low + "||" +currentValue+"=="+high);
                     listOfTextValues.get(i).setTextColor(Color.rgb(240,128,128));
                 }
                 if (currentValue > high || currentValue < low){
-                    System.out.println(listOfTextValues.get(i).getText() + " " +currentValue + "<" + low + "||" +currentValue+">"+high);
-                    listOfTextValues.get(i).setTextColor(Color.rgb(165,42,42));
+                    //System.out.println(listOfTextValues.get(i).getText() + " " +currentValue + "<" + low + "||" +currentValue+">"+high);
+                    listOfTextValues.get(i).setTextColor(Color.rgb(255,127,80));
                 }
             }
             itemView.findViewById(R.id.updateItem).setOnClickListener(e->{
                 Intent intent = new Intent(itemView.getContext(), UpdateActivity.class);
+                intent.putExtra("SECRET_KEY", SECRET_KEY);
                 intent.putExtra("currentItem", currentItem);
 
                 itemView.getContext().startActivity(intent);

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -73,6 +74,14 @@ public class InsertActivity extends AppCompatActivity {
         }
 
         user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            Log.d(LOG_TAG, "Authenticated user: "  + user.getEmail());
+        } else {
+            Log.d(LOG_TAG, "UNAUTHENTICATED USER!");
+            finish();
+        }
+
         if (user != null) {
             userName = user.getEmail();
         } else {
@@ -207,10 +216,14 @@ public class InsertActivity extends AppCompatActivity {
             } else {
                 //Add to FireStore
                 mItems.add(o);
-                Intent intent = new Intent(this, ListingActivity.class);
-                intent.putExtra("SECRET_KEY", SECRET_KEY);
-                Toast.makeText(InsertActivity.this, "Sikeres felvitel!", Toast.LENGTH_LONG).show();
-                startActivity(intent);
+                if (user != null) {
+                    Intent intent = new Intent(this, ListingActivity.class);
+                    intent.putExtra("SECRET_KEY", SECRET_KEY);
+                    Toast.makeText(InsertActivity.this, "Sikeres felvitel!", Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+                } else {
+                    this.finish();
+                }
             }
         }
     }

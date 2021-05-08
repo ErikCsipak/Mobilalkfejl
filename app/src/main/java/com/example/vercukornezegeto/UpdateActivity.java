@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vercukornezegeto.entities.Observation;
 import com.example.vercukornezegeto.entities.Resource.Component;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -30,6 +32,7 @@ public class UpdateActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private FirebaseFirestore mFirestore;
+    private FirebaseUser user;
     private CollectionReference mItems;
 
     private EditText WBC;
@@ -62,6 +65,15 @@ public class UpdateActivity extends AppCompatActivity {
         int secret_key = getIntent().getIntExtra("SECRET_KEY", 0);
 
         if (secret_key != 99) {
+            finish();
+        }
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (user != null) {
+            Log.d(LOG_TAG, "Authenticated user: "  + user.getEmail());
+        } else {
+            Log.d(LOG_TAG, "UNAUTHENTICATED USER!");
             finish();
         }
 
@@ -179,10 +191,14 @@ public class UpdateActivity extends AppCompatActivity {
                 Toast.makeText(UpdateActivity.this, "Válassz dátumot!", Toast.LENGTH_LONG).show();
             } else {
                 mItems.document(o.getDocumentId()).set(o);
-                Intent intent = new Intent(this, ListingActivity.class);
-                intent.putExtra("SECRET_KEY", SECRET_KEY);
-                Toast.makeText(UpdateActivity.this, "Sikeres felvitel!", Toast.LENGTH_LONG).show();
-                startActivity(intent);
+                if (user != null) {
+                    Intent intent = new Intent(this, ListingActivity.class);
+                    intent.putExtra("SECRET_KEY", SECRET_KEY);
+                    Toast.makeText(UpdateActivity.this, "Sikeres módosítás!", Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+                } else {
+                    this.finish();
+                }
             }
         }
     }

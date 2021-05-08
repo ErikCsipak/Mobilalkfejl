@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="newPage"
-        android:text="Új eredmény"
+        android:text="@string/j_eredm_ny"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/logOut"
         app:layout_constraintStart_toStartOf="parent" />
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="logOut"
-        android:text="Kijelentkezés"
+        android:text="@string/kijelentkez_s"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/newPage" />

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="E-mail"
+        android:hint="@string/e_mail"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Jelszó"
+        android:hint="@string/jelsz"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextUserName"
         tools:layout_editor_absoluteX="57dp" />
@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="login"
-        android:text="Belépés"
+        android:text="@string/bel_p_s"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="register"
-        android:text="Regisztráció"
+        android:text="@string/regisztr_ci"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />

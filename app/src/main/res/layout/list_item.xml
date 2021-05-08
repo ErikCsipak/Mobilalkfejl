@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:layout_margin="8dp">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+
         <TextView
             android:id="@+id/dateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
             android:layout_centerHorizontal="true"
-            android:text="Date_placeholder:" />
+            android:padding="8dp"
+            android:text="@string/date_placeholder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/first"
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_below="@id/dateText"
             android:layout_alignParentStart="true"
-            >
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateText">
+
             <TextView
                 android:id="@+id/result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="Eredmény:" />
+                android:text="@string/eredm_ny" />
 
             <TextView
                 android:id="@+id/wbcValue"
@@ -36,281 +47,301 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="@string/wbc_placeholder" />
+
             <TextView
                 android:id="@+id/rbcValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="RBC_placeholder" />
+                android:text="@string/rbc_placeholder" />
+
             <TextView
                 android:id="@+id/hgbValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="HGB_placeholder"/>
+                android:text="@string/hgb_placeholder" />
+
             <TextView
                 android:id="@+id/hctValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="HCT_placeholder"/>
+                android:text="@string/hct_placeholder" />
+
             <TextView
                 android:id="@+id/mcvValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="MCV_placeholder"/>
+                android:text="@string/mcv_placeholder" />
+
             <TextView
                 android:id="@+id/mchValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="MCH_placeholder"/>
+                android:text="@string/mch_placeholder" />
+
             <TextView
                 android:id="@+id/mchcValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="MCHC_placeholder"/>
+                android:text="@string/mchc_placeholder" />
+
             <TextView
                 android:id="@+id/pltValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="PLT_placeholder"/>
+                android:text="@string/plt_placeholder" />
+
             <TextView
                 android:id="@+id/rdwsdValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="RDWSD_placeholder"/>
+                android:text="@string/rdwsd_placeholder" />
+
             <TextView
                 android:id="@+id/rdwcvValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="RDWCV_placeholder"/>
+                android:text="@string/rdwcv_placeholder" />
+
             <TextView
                 android:id="@+id/pdwValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="pdw_placeholder"/>
+                android:text="@string/pdw_placeholder" />
+
             <TextView
                 android:id="@+id/mpvValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="MPV_placeholder"/>
+                android:text="@string/mpv_placeholder" />
+
             <TextView
                 android:id="@+id/pctValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="PCT_placeholder"/>
+                android:text="@string/pct_placeholder" />
+
             <TextView
                 android:id="@+id/neutValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="NEUT_placeholder"/>
+                android:text="@string/neut_placeholder" />
+
             <TextView
                 android:id="@+id/lymphValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="LMYPH_placeholder"/>
+                android:text="@string/lmyph_placeholder" />
+
             <TextView
                 android:id="@+id/monoValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="MONO_placeholder"/>
+                android:text="@string/mono_placeholder" />
+
             <TextView
                 android:id="@+id/eoValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="eo_placeholder"/>
+                android:text="@string/eo_placeholder" />
+
             <TextView
                 android:id="@+id/basoValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="BASO_placeholder"/>
+                android:text="@string/baso_placeholder" />
+
             <TextView
                 android:id="@+id/igValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="IG_placeholder"/>
-            <androidx.appcompat.widget.LinearLayoutCompat
+                android:text="@string/ig_placeholder" />
+
+            <Button
+                android:id="@+id/updateItem"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentStart="true"
-                >
-                    <Button
-                        android:id="@+id/updateItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Módosít" />
-                    <Button
-                        android:id="@+id/deleteItem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="Töröl" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
+                android:layout_marginStart="10dp"
+                android:text="@string/m_dos_t" />
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="wrap_content"
+            android:id="@+id/linearLayoutCompat"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/dateText"
-            android:layout_toEndOf="@+id/first"
             android:layout_alignParentEnd="true"
-            android:orientation="vertical">
+            android:layout_toEndOf="@+id/first"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/first"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dateText">
 
             <TextView
                 android:id="@+id/basedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="Normál érték:" />
+                android:text="@string/norm_l_rt_k" />
 
             <TextView
                 android:id="@+id/wbcBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="wbc_basedOn" />
+                android:text="@string/wbc_basedon" />
 
             <TextView
                 android:id="@+id/rbcBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="rbc_basedOn" />
+                android:text="@string/rbc_basedon" />
 
             <TextView
                 android:id="@+id/hgbBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="hgb_basedOn" />
+                android:text="@string/hgb_basedon" />
 
             <TextView
                 android:id="@+id/hctBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="hgb_basedOn" />
+                android:text="@string/hgb_basedon" />
 
             <TextView
                 android:id="@+id/mcvBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="mcv_basedOn" />
+                android:text="@string/mcv_basedon" />
 
             <TextView
                 android:id="@+id/mchBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="mch_basedOn" />
+                android:text="@string/mch_basedon" />
 
             <TextView
                 android:id="@+id/mchcBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="mchc_basedOn" />
+                android:text="@string/mchc_basedon" />
 
             <TextView
                 android:id="@+id/pltBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="plt_basedOn" />
+                android:text="@string/plt_basedon" />
 
             <TextView
                 android:id="@+id/rdwsdBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="rdwsd_basedOn" />
+                android:text="@string/rdwsd_basedon" />
 
             <TextView
                 android:id="@+id/rdwcvBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="rdwcv_basedOn" />
+                android:text="@string/rdwcv_basedon" />
 
             <TextView
                 android:id="@+id/pdwBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="pdw_basedOn" />
+                android:text="@string/pdw_basedon" />
 
             <TextView
                 android:id="@+id/mpvBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="mpv_basedOn" />
+                android:text="@string/mpv_basedon" />
 
             <TextView
                 android:id="@+id/pctBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="pct_basedOn" />
+                android:text="@string/pct_basedon" />
 
             <TextView
                 android:id="@+id/neutBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="neut_basedOn" />
+                android:text="@string/neut_basedon" />
 
             <TextView
                 android:id="@+id/lymphBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="lymph_basedOn" />
+                android:text="@string/lymph_basedon" />
 
             <TextView
                 android:id="@+id/monoBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="mono_basedOn" />
+                android:text="@string/mono_basedon" />
 
             <TextView
                 android:id="@+id/eoBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="eo_basedOn" />
+                android:text="@string/eo_basedon" />
 
             <TextView
                 android:id="@+id/basoBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="baso_basedOn" />
+                android:text="@string/baso_basedon" />
 
             <TextView
                 android:id="@+id/igBasedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="ig_basedOn" />
+                android:text="@string/ig_basedon" />
+
+            <Button
+                android:id="@+id/deleteItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/t_r_l" />
         </androidx.appcompat.widget.LinearLayoutCompat>
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
