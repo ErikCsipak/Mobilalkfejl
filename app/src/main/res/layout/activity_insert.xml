@@ -36,7 +36,7 @@
                 <EditText
                     android:id="@+id/WBCValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -57,7 +57,7 @@
                 <EditText
                     android:id="@+id/PDWValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
             </RelativeLayout>
@@ -78,7 +78,7 @@
                     android:id="@+id/EOValue"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_alignParentEnd="true" />
 
             </RelativeLayout>
@@ -98,7 +98,7 @@
                 <EditText
                     android:id="@+id/PCTValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -119,7 +119,7 @@
                 <EditText
                     android:id="@+id/LYMPHValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -139,7 +139,7 @@
 
                 <EditText
                     android:id="@+id/RDWSDValue"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -160,7 +160,7 @@
 
                 <EditText
                     android:id="@+id/HGBValue"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -182,7 +182,7 @@
                 <EditText
                     android:id="@+id/MCHCValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -202,10 +202,10 @@
 
                 <EditText
                     android:id="@+id/MCVValue"
-                    android:inputType="number"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:inputType="numberDecimal" />
 
             </RelativeLayout>
 
@@ -223,7 +223,7 @@
 
                 <EditText
                     android:id="@+id/IGValue"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -262,7 +262,7 @@
 
                 <EditText
                     android:id="@+id/HCTValue"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -284,9 +284,9 @@
                 <EditText
                     android:id="@+id/MCHValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:inputType="numberDecimal" />
 
             </RelativeLayout>
 
@@ -304,7 +304,7 @@
 
                 <EditText
                     android:id="@+id/PLTValue"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
@@ -326,7 +326,7 @@
                 <EditText
                     android:id="@+id/RDWCVValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -347,7 +347,7 @@
                 <EditText
                     android:id="@+id/RBCValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -368,7 +368,7 @@
                 <EditText
                     android:id="@+id/MPVValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -389,9 +389,9 @@
                 <EditText
                     android:id="@+id/NEUTValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true" />
+                    android:layout_alignParentEnd="true"
+                    android:inputType="numberDecimal" />
 
             </RelativeLayout>
 
@@ -410,7 +410,7 @@
                 <EditText
                     android:id="@+id/MONOValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 
@@ -431,7 +431,7 @@
                 <EditText
                     android:id="@+id/BASOValue"
                     android:layout_width="100dp"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true" />
 

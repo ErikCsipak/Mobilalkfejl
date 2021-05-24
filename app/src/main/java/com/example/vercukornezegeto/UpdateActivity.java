@@ -153,6 +153,7 @@ public class UpdateActivity extends AppCompatActivity {
         }
 
         Observation o = currentItem;
+        o.setStatus("amended");
         o.setComponent(components);
         o.setEffectiveInstant(date.getText().toString());
 

@@ -7,12 +7,12 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editTextUserName"
+        android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/e_mail"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.402"
@@ -26,7 +26,7 @@
         android:ems="10"
         android:hint="@string/jelsz"
         android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUserName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
         tools:layout_editor_absoluteX="57dp" />
 
     <Button

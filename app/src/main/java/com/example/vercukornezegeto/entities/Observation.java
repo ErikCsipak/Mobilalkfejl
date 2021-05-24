@@ -290,7 +290,11 @@ public class Observation implements Parcelable {
     public void setStatus(String status) {
         if (status != null) {
             if (status.matches("[^\\s]+(\\s[^\\s]+)*")) {
-                this.status = status;
+                if (status.equals("registered") || status.equals("preliminary") || status.equals("final") || status.equals("amended")) {
+                    this.status = status;
+                } else {
+                    System.err.println("Status must be registered | preliminary | final | amended");
+                }
             } else {
                 System.err.println("Invalid status: " + status + " (must match code regex)");
             }

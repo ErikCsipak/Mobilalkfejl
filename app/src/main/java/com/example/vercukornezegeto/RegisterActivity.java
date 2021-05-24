@@ -55,9 +55,14 @@ public class RegisterActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
         String passwordConfirm = passwordConfirmEditText.getText().toString();
 
-        if (!password.equals(passwordConfirm)) {
-            Log.e(LOG_TAG, "Mismatch in password and password check.");
-            Toast.makeText(RegisterActivity.this, "A jelszavak nem egyeznek!", Toast.LENGTH_LONG).show();
+        if (!password.equals(passwordConfirm) || password.equals("")) {
+            Log.e(LOG_TAG, "Mismatch in password and password check, or not given values.");
+            Toast.makeText(RegisterActivity.this, "A jelszavak nem egyeznek, vagy nem töltött ki egy mezőt!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (email.equals("") || !email.matches("(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)])")){
+            Log.e(LOG_TAG, "Email missing.");
+            Toast.makeText(RegisterActivity.this, "Hibás e-mail formátum!", Toast.LENGTH_LONG).show();
             return;
         }
 

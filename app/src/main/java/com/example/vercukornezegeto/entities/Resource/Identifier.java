@@ -18,7 +18,11 @@ public class Identifier {
     public void setUse(String use) {
         if (use != null) {
             if (use.matches("[^\\s]+(\\s[^\\s]+)*")) {
-                this.use = use;
+                if (use.equals("usual") || use.equals("official") || use.equals("temp") || use.equals("secondary") || use.equals("old")) {
+                    this.use = use;
+                } else {
+                    System.err.println("Use must be usual | official | temp | secondary | old");
+                }
             } else {
                 System.err.println("Invalid use: " + use + " (must match code regex)");
             }

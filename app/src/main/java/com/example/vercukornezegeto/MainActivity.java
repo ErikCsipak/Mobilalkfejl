@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity{
     private static final String LOG_TAG = MainActivity.class.getName();
     private static final int SECRET_KEY = 99;
 
-    EditText userNameET;
+    EditText emailET;
     EditText passwordET;
 
     private FirebaseAuth mAuth;
@@ -27,18 +27,29 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userNameET = findViewById(R.id.editTextUserName);
+        emailET = findViewById(R.id.editTextEmail);
         passwordET = findViewById(R.id.editTextPassword);
 
         mAuth = FirebaseAuth.getInstance();
     }
     public void login(View view) {
-        String userName = userNameET.getText().toString();
+        String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
+
+        if (password.equals("")) {
+            Log.e(LOG_TAG, "Password is empty.");
+            Toast.makeText(MainActivity.this, "Add meg a jelszót!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (email.equals("")) {
+            Log.e(LOG_TAG, "E-mail is empty.");
+            Toast.makeText(MainActivity.this, "Add meg a e-mail címed!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         //Log.i(LOG_TAG, "Logged in user: " + userName);
 
-        mAuth.signInWithEmailAndPassword(userName, password).addOnCompleteListener(this, task -> {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
             if(task.isSuccessful()){
                 Log.d(LOG_TAG, "User login successful");
                 startListing();

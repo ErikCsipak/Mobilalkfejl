@@ -154,12 +154,6 @@ public class InsertActivity extends AppCompatActivity {
         int targetStringLength = 8;
         Random random = new Random();
 
-        //Generate random identifier as status
-        String statusIdentifier = random.ints(leftLimit, rightLimit + 1)
-                .limit(targetStringLength)
-                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                .toString();
-
         //Input field values
         ArrayList<String> resultValues = new ArrayList<>();
         ArrayList<Component> components = new ArrayList<>();
@@ -177,7 +171,7 @@ public class InsertActivity extends AppCompatActivity {
             components.add(new Component(generatedString, res));
         }
 
-        Observation o = new Observation(statusIdentifier, c);
+        Observation o = new Observation("registered", c);
         o.setComponent(components);
         o.setSubject(user);
         o.setFocus(valueNames);
