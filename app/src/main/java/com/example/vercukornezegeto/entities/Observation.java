@@ -293,7 +293,7 @@ public class Observation implements Parcelable {
                 if (status.equals("registered") || status.equals("preliminary") || status.equals("final") || status.equals("amended")) {
                     this.status = status;
                 } else {
-                    System.err.println("Status must be registered | preliminary | final | amended");
+                    System.err.println("Status must be registered | preliminary | final | amended, not: " + status);
                 }
             } else {
                 System.err.println("Invalid status: " + status + " (must match code regex)");

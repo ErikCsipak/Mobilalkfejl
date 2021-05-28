@@ -179,6 +179,11 @@ public class UpdateActivity extends AppCompatActivity {
                 b = false;
                 break;
             }
+            if (str.length() > 6){
+                Toast.makeText(UpdateActivity.this, "Túl hosszú értékek! Legfejlebb 6 karakter hosszú számot adhatsz meg!", Toast.LENGTH_LONG).show();
+                b = false;
+                break;
+            }
             try {
                 Float.parseFloat(str);
             } catch(NumberFormatException | NullPointerException e ) {

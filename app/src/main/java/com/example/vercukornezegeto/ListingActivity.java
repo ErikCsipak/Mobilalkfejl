@@ -77,12 +77,12 @@ public class ListingActivity extends AppCompatActivity {
     private void queryData(){
         //Log.d(LOG_TAG, "Data query started!");
         mItemsData.clear();
-        mItems.get().addOnSuccessListener(queryDocumentSnapshots -> {
+        mItems.whereEqualTo("subject",  user.getEmail()).get().addOnSuccessListener(queryDocumentSnapshots -> {
             //Log.d(LOG_TAG, "Data query successful!");
             for (QueryDocumentSnapshot document : queryDocumentSnapshots){
                 Observation o = document.toObject(Observation.class);
                 o.setDocumentId(document.getId());
-                if (Objects.equals(user.getEmail(), o.getSubject()))mItemsData.add(o);
+                mItemsData.add(o);
             }
             mAdapter.notifyDataSetChanged();
         });
